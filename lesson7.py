@@ -18,7 +18,9 @@ for i in range(30):
         x,y,w,h = face
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,0),1)
         face = grayframe[y:y+h,x:x+w]
-        cv2.imwrite(path,face)
+        face = cv2.resize(face,(130,100))
+        cv2.imwrite("%s/%s.png"%(path,i),face)
+        
     
     if boolean == False :
         continue
